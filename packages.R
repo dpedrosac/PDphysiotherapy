@@ -16,7 +16,9 @@
 # -------------------------------
 
 required_packages <- c(
+  "dplyr",
   "modeest",
+  "purrr",
   "readxl",
   "tableone",
   "tidyverse"

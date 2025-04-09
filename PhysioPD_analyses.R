@@ -17,7 +17,7 @@ username <- Sys.getenv("USER")
 if (username == "dpedr") {
   wdir <- "D:/PDphysiotherapy"
   data_dir <- file.path(wdir, "data")
-} else if (username == "dpedrosac") {
+} else if (username == "david") {
   wdir <- "/media/storage/PDphysiotherapy"
   data_dir <- file.path(wdir, "data")
 } else if (username == "chris") {
