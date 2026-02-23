@@ -22,12 +22,20 @@
 # -------------------------------------------------------------------------
 
 packages <- c(
+
+  "broom", 
+  "car", 
   "dplyr",
+  "ggplot2", 
   "modeest",
+  "openxlsx",
+  "psych", 
   "purrr",
   "readxl",
+  "stringr",
   "tableone",
-  "tidyverse"
+  "tidyverse", 
+  "VIM"
 )
 
 load_or_install <- function(pkg) {

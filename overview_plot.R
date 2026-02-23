@@ -7,6 +7,10 @@
 # DONE: Renaming the predictors, age10: per 10 years, colleagues5: per 5 colleagues, patient_volume5: per 5 patients per year, EDUCATION as ordinal variable per level, same with workload und work experience, redesign plots
 df_processed_saved <- df_processed
 
+
+
+# TDDO: Let's try to put of all this into 01_tidyup_dataframe.v1.1.R, since I'm not even sure all is necessary.
+
 df_processed <- df_processed %>%
   mutate(
     age10        = age / 10,
@@ -71,9 +75,41 @@ df_processed <- df_processed %>%
   )
 
 # Defined predictors
-predictors <- c("gender", "age10", "education_trend", "teaching_role", "managerial_position", "scientific_authorship", "work_environment", "employment_status", "workload_trend", "workexp_trend", "parkinson_focus", "colleagues5", "postgraduate_training", "physician_collaboration_bin", "patient_volume5")
+predictors <- c(
+  "gender",
+  "age10",
+  "education_trend",
+  "teaching_role",
+  "managerial_position",
+  "scientific_authorship",
+  "work_environment",
+  "employment_status",
+  "workload_trend",
+  "workexp_trend",
+  "parkinson_focus",
+  "colleagues5",
+  "postgraduate_training",
+  "physician_collaboration_bin",
+  "patient_volume5"
+)
 
-predictor_labels <- c(gender="Gender", age10="Age (per 10 years)", education_trend="Education (ordinal, per level)", teaching_role="Teaching role / clinical instructor", managerial_position="Managerial position", scientific_authorship="Authorship of scientific publications", work_environment="Work setting", employment_status="Employment status", workload_trend="Workload (per level)", workexp_trend="Work experience (per level)", parkinson_focus="Parkinson focus at workplace", colleagues5="Number of physiotherapy colleagues (per 5)", postgraduate_training="Postgraduate training", physician_collaboration_bin="Physician collaboration", patient_volume5="Patient volume (per 5 patients)")
+predictor_labels <- c(
+  gender = "Gender",
+  age10 = "Age (per 10 years)",
+  education_trend = "Education (ordinal, per level)",
+  teaching_role = "Teaching role / clinical instructor",
+  managerial_position = "Managerial position",
+  scientific_authorship = "Authorship of scientific publications",
+  work_environment = "Work setting",
+  employment_status = "Employment status",
+  workload_trend = "Workload (per level)",
+  workexp_trend = "Work experience (per level)",
+  parkinson_focus = "Parkinson focus at workplace",
+  colleagues5 = "Number of physiotherapy colleagues (per 5)",
+  postgraduate_training = "Postgraduate training",
+  physician_collaboration_bin = "Physician collaboration",
+  patient_volume5 = "Patient volume (per 5 patients)"
+)
 
 ################################################
 ################## RESOURCES ###################
@@ -81,6 +117,9 @@ predictor_labels <- c(gender="Gender", age10="Age (per 10 years)", education_tre
 
 # Univariable OR overview Resources vs all socialdemographics
 variable_groups$resources
+
+# TDDO: Let's try to put of all this into 01_tidyup_dataframe.v1.1.R, since I'm not even sure all is necessary.
+
 df_processed <- df_processed %>%
   mutate(across(all_of(variable_groups$resources), ~ as.numeric(as.character(.))))
 df_processed <- df_processed %>%
@@ -111,6 +150,8 @@ df_OR_resources$postgraduate_training <- relevel(factor(df_OR_resources$postgrad
 df_OR_resources$education_trend <- as.numeric(df_OR_resources$education_trend)
 df_OR_resources$workexp_trend <- as.numeric(df_OR_resources$workexp_trend)
 df_OR_resources$workload_trend <- as.numeric(df_OR_resources$workload_trend)
+
+# TDDO: Let's try to put of all this into 01_tidyup_dataframe.v1.1.R, since I'm not even sure all is necessary.
 
 df_OR_resources$gender <- relevel(
   factor(df_OR_resources$gender),

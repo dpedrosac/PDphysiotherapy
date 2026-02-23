@@ -29,15 +29,15 @@ flag_check <- FALSE
 username <- Sys.getenv("USERNAME")
 if (username == "dpedr") {
   project_root <- "D:/PDphysiotherapy"
-  data_dir <- file.path(wdir, "data")
+  data_dir <- file.path(project_root, "data")
   
 } else if (username == "david") {
   project_root <- "/media/storage/PDphysiotherapy"
-  data_dir <- file.path(wdir, "data")
+  data_dir <- file.path(project_root, "data")
   
 } else if (username == "chris") {
   project_root <- "C:/Users/chris/Desktop/PDphysiotherapy"
-  data_dir <- file.path(wdir, "data")
+  data_dir <- file.path(project_root, "data")
   
 } else {
   cat("Username unknown\n")
